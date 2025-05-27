@@ -6,7 +6,7 @@ export const ProductosProvider = ({ children }) => {
   const [productos, setProductos] = useState([]);
 
   const getProductos = async () => {
-    const response = await fetch("http://localhost:3000/productos"); // <-- URL correcta para productos
+    const response = await fetch("http://localhost:3000/productos");
     const data = await response.json();
     setProductos(data);
   };

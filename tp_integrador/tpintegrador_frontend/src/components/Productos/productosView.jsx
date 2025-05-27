@@ -28,7 +28,6 @@ const ProductosView = ({
     <div className="container mt-4">
       <h2>Productos</h2>
 
-      {/* Botón para exportar PDF */}
       <button className="btn btn-success mb-3" onClick={exportarProductosPDF}>
         Exportar productos PDF
       </button>

@@ -3,24 +3,23 @@ const path = require('path');
 
 const filePath = path.join(__dirname, '../db/productos.json');
 
-// Leer productos desde el archivo JSON
+
 const leerProductos = () => {
   const data = fs.readFileSync(filePath, 'utf8');
   return JSON.parse(data);
 };
 
-// Guardar productos en el archivo JSON
 const guardarProductos = (productos) => {
   fs.writeFileSync(filePath, JSON.stringify(productos, null, 2), 'utf8');
 };
 
-// Obtener todos los productos
+
 const getProductos = (req, res) => {
   const productos = leerProductos();
   res.json(productos);
 };
 
-// Crear un nuevo producto
+
 const crearProducto = (req, res) => {
   const productos = leerProductos();
   const { nombre, precio } = req.body;
@@ -34,7 +33,7 @@ const crearProducto = (req, res) => {
   res.status(201).json({ mensaje: 'Producto agregado', producto: nuevoProducto });
 };
 
-// Actualizar un producto
+
 const actualizarProducto = (req, res) => {
   const productos = leerProductos();
   const id = parseInt(req.params.id);
@@ -50,7 +49,7 @@ const actualizarProducto = (req, res) => {
   }
 };
 
-// Eliminar un producto
+
 const eliminarProducto = (req, res) => {
   const productos = leerProductos();
   const id = parseInt(req.params.id);
